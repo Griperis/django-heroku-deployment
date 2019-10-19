@@ -1,1 +1,1 @@
-web: gunicorn plgnd.plgnd.wsgi --log-file
+web: gunicorn plgnd.plgnd.wsgi
