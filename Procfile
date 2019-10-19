@@ -1,1 +1,1 @@
-web: gunicorn plgnd.plgnd.wsgi
+web: gunicorn plgnd.wsgi
