@@ -2,3 +2,4 @@ Django
 django-extensions
 gunicorn
 whitenoise
+django-heroku
