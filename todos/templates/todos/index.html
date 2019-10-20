@@ -8,17 +8,30 @@
 </head>
 
 <body>
-
-    <h1>Todos app</h1>
-    <div class="flex">
-        {% for todo in todos %}
-        <div class="card text-left" style="width: 18rem">
-            <div class="card-body">
-                <h4 class="card-title">{{ todo.title_text }}</h4>
-                <p class="card-text">{{ todo.detail }}</p>
+    <div class="container">
+        <h1 class="text-center">Todos app</h1>
+        <div class="d-flex flex-wrap justify-content-center">
+            {% for todo in todos %}
+            <div class="card text-left" style="width: 18rem">
+                <div class="card-body">
+                    <h4 class="card-title">{{ todo.title_text }}</h4>
+                    <p class="card-text">{{ todo.detail }}</p>
+                    <a href="{% url 'delete_todo' todo.id %}">Remove</a>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="card" style="width: 18rem; background: #eeeeee;">
+                <div class="card-body">
+                <form action="." method="POST">
+                        {% csrf_token %}
+                        <label for="todo-input-header">Title</label>
+                        <input name="title" class="form-control" id="todo-input-header" type="text"/>
+                        <label for="todo-input-text">Text</label>
+                        <textarea name="text-detail" class="form-control" id="todo-input-text"></textarea>
+                        <button type="submit" class="btn btn-primary mt-2">+</button>
+                </form>
             </div>
         </div>
-        {% endfor %}
     </div>
     {% comment %} Bootstrap 4.0 scripts {% endcomment %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
